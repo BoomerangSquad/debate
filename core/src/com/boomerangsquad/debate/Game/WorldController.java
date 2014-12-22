@@ -1,4 +1,4 @@
-package com.boomerangsquad.debate.Game;
+package com.boomerangsquad.debate.game;
 
 import com.badlogic.gdx.InputAdapter;
 

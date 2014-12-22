@@ -2,8 +2,7 @@ package com.boomerangsquad.testing.tests;
 
 import static org.junit.Assert.*;
 
-import com.boomerangsquad.debate.*;
-import com.boomerangsquad.debate.Game.WorldController;
+import com.boomerangsquad.debate.game.WorldController;
 import com.boomerangsquad.testing.GdxTestRunner;
 
 import org.junit.Test;
