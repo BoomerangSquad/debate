@@ -4,17 +4,17 @@ package com.boomerangsquad.debate.player;
  * Created by denny on 14-12-22.
  */
 public class Player {
-    private String name;
+    private String mName;
 
     public Player(String name) {
-        this.name = name;
+        this.mName = name;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.mName = name;
     }
 }
