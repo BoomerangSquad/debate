@@ -9,6 +9,8 @@ import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.backends.headless.HeadlessApplication;
+import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
@@ -19,9 +21,12 @@ public class GdxTestRunner extends BlockJUnit4ClassRunner implements Application
 
     public GdxTestRunner(Class<?> klass) throws InitializationError {
         super(klass);
-        LwjglApplicationConfiguration conf = new LwjglApplicationConfiguration();
+        HeadlessApplicationConfiguration conf = new HeadlessApplicationConfiguration();
 
-        new LwjglApplication(this, conf);
+        new HeadlessApplication(this, conf);
+//        LwjglApplicationConfiguration conf = new LwjglApplicationConfiguration();
+//
+//        new LwjglApplication(this, conf);
     }
 
     @Override

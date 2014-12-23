@@ -1,0 +1,20 @@
+package com.boomerangsquad.debate.player;
+
+/**
+ * Created by denny on 14-12-22.
+ */
+public class Player {
+    private String name;
+
+    public Player(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
