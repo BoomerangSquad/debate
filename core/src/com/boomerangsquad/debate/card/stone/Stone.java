@@ -1,7 +1,6 @@
 package com.boomerangsquad.debate.card.stone;
 
 import com.boomerangsquad.debate.card.Card;
-import com.boomerangsquad.debate.card.stone.statuseffect.StatusEffect;
 import com.boomerangsquad.debate.player.Player;
 
 /**
