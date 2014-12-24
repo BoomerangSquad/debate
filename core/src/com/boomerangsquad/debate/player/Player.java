@@ -1,12 +1,12 @@
 package com.boomerangsquad.debate.player;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.boomerangsquad.debate.card.Card;
+import com.boomerangsquad.debate.player.cardlist.Deck;
+import com.boomerangsquad.debate.player.cardlist.Hand;
 import com.boomerangsquad.debate.statuseffect.StatusEffect;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by denny on 14-12-22.
@@ -16,14 +16,14 @@ public class Player {
     private int mHealth;
     private Sprite mSprite;
     private List<StatusEffect> mStatusEffects;
-    private List<Card> mHand;
-    private List<Card> mDeck;
+    private Hand mHand;
+    private Deck mDeck;
 
     public Player(String name) {
         mName = name;
         mHealth = 50;
-        mHand = new ArrayList<Card>();
-        mDeck = new ArrayList<Card>();
+        mHand = new Hand();
+        mDeck = new Deck();
         mStatusEffects = new ArrayList<StatusEffect>();
     }
 
@@ -51,22 +51,16 @@ public class Player {
         return mStatusEffects;
     }
 
-    public List<Card> getHand() {
+    public Hand getHand() {
         return mHand;
     }
 
-    public List<Card> getDeck() {
+    public Deck getDeck() {
         return mDeck;
     }
 
     public boolean drawCard() {
-        if(!mDeck.isEmpty()){
-            Random random = new Random();
-            int position = random.nextInt(mDeck.size());
-            mHand.add(mDeck.remove(position));
-            return true;
-        }
-        return false;
+        return mHand.addCard(mDeck.drawCard());
     }
 
 

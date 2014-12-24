@@ -1,8 +1,9 @@
 package com.boomerangsquad.testing.tests.player;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.boomerangsquad.debate.card.Card;
+import com.boomerangsquad.debate.player.cardlist.Deck;
+import com.boomerangsquad.debate.player.cardlist.Hand;
 import com.boomerangsquad.debate.player.Player;
-import com.boomerangsquad.debate.statuseffect.StatusEffect;
 import com.boomerangsquad.testing.GdxTestRunner;
 import static org.junit.Assert.*;
 
@@ -11,7 +12,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by denny on 14-12-22.
@@ -20,12 +20,14 @@ import java.util.List;
 public class PlayerTest {
 
     Player mPlayer;
+    Card mTestCard;
     final String mPlayerName = "Andy";
     final int mPlayerStartingHealth = 50;
 
     @Before
     public void setUp() throws Exception {
         mPlayer = new Player(mPlayerName);
+        mTestCard = new Card(mPlayer, "test");
     }
 
     @Test
@@ -61,16 +63,23 @@ public class PlayerTest {
 
     @Test
     public void canWeGetTheDeck() throws Exception {
-        assertEquals(ArrayList.class.getName(), mPlayer.getDeck().getClass().getName());
+        assertEquals(Deck.class.getName(), mPlayer.getDeck().getClass().getName());
     }
 
     @Test
     public void canWeGetTheHand() throws Exception {
-        assertEquals(ArrayList.class.getName(), mPlayer.getHand().getClass().getName());
+        assertEquals(Hand.class.getName(), mPlayer.getHand().getClass().getName());
     }
 
     @Test
     public void willDrawingACardWithNoDeckReturnFalse() throws Exception {
         assertFalse(mPlayer.drawCard());
     }
+
+//    @Test
+//    public void willDrawingACardAddToHand() throws Exception {
+//        mPlayer.getDeck().addCard(mTestCard);
+//        mPlayer.drawCard();
+//        assertEquals(mTestCard, mPlayer.getHand().getCard(0));
+//    }
 }
