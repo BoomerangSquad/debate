@@ -1,8 +1,10 @@
 package com.boomerangsquad.debate.player;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.boomerangsquad.debate.card.Card;
 import com.boomerangsquad.debate.statuseffect.StatusEffect;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -12,13 +14,17 @@ import java.util.Random;
 public class Player {
     private String mName;
     private int mHealth;
-    private String mText;
+    private Sprite mSprite;
     private List<StatusEffect> mStatusEffects;
     private List<Card> mHand;
     private List<Card> mDeck;
 
     public Player(String name) {
-        this.mName = name;
+        mName = name;
+        mHealth = 50;
+        mHand = new ArrayList<Card>();
+        mDeck = new ArrayList<Card>();
+        mStatusEffects = new ArrayList<StatusEffect>();
     }
 
     public String getName() {
@@ -37,12 +43,8 @@ public class Player {
         mHealth = health;
     }
 
-    public String getText() {
-        return mText;
-    }
-
-    public void setText(String text) {
-        mText = text;
+    public Sprite getSprite() {
+        return mSprite;
     }
 
     public List<StatusEffect> getStatusEffects() {
@@ -57,10 +59,14 @@ public class Player {
         return mDeck;
     }
 
-    public void drawCard() {
-        Random random = new Random();
-        int position = random.nextInt(mDeck.size());
-        mHand.add(mDeck.remove(position));
+    public boolean drawCard() {
+        if(!mDeck.isEmpty()){
+            Random random = new Random();
+            int position = random.nextInt(mDeck.size());
+            mHand.add(mDeck.remove(position));
+            return true;
+        }
+        return false;
     }
 
 
