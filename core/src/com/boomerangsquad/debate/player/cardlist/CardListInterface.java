@@ -8,6 +8,8 @@ import com.boomerangsquad.debate.card.Card;
 public interface CardListInterface {
     public boolean addCard(Card card);
     public boolean isFull();
+    public void setFull(int number);
+    public int getFull();
     public Card getCard(int position);
     public boolean isEmpty();
     public int size();

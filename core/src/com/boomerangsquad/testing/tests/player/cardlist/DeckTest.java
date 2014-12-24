@@ -1,4 +1,4 @@
-package com.boomerangsquad.testing.tests.player;
+package com.boomerangsquad.testing.tests.player.cardlist;
 
 import com.boomerangsquad.debate.card.Card;
 import com.boomerangsquad.debate.player.cardlist.Deck;

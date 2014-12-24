@@ -18,6 +18,16 @@ public class CardList implements CardListInterface {
     }
 
     @Override
+    public void setFull(int number){
+        FULL = number;
+    }
+
+    @Override
+    public int getFull(){
+        return FULL;
+    }
+
+    @Override
     public boolean addCard(Card card){
        if(!isFull() && card != null){
             mCardList.add(card);
