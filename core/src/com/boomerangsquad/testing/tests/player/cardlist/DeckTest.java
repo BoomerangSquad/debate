@@ -106,4 +106,17 @@ public class DeckTest {
     public void getCardWithNoCardsInDeckReturnsNull() throws Exception {
         assertEquals(null, mDeck.getCard(0));
     }
+
+    @Test
+    public void addCardInRandomPositionWillPlaceTheCardInRandomPosition() throws Exception {
+        mDeck.setFull(1010);
+        for(int i = 0; i < 1000; i++){
+            mDeck.addCard(mTestCardTwo);
+        }
+        assertEquals(1000, mDeck.size());
+        boolean added = mDeck.addCardInRandomPosition(mTestCard);
+        assertEquals(1001, mDeck.size());
+        assertTrue(added);
+        assertEquals(mTestCardTwo, mDeck.getCard(mDeck.size()-1));
+    }
 }

@@ -35,6 +35,40 @@ public class CardListTest {
     }
 
     @Test
+    public void addingACardWithPositonAddsTheCardToThatPosition() throws Exception{
+        mTestList.addCard(mTestCardOne);
+        mTestList.addCard(mTestCardOne);
+        boolean added = mTestList.addCard(mTestCardTwo, 1);
+        assertTrue(added);
+        assertEquals(mTestCardTwo, mTestList.getCard(1));
+    }
+
+    @Test
+    public void addingACardInPositionWhileListIsFullReturnsFalse() throws Exception{
+        mTestList.setFull(0);
+        boolean added = mTestList.addCard(mTestCardOne, 0);
+        assertFalse(added);
+    }
+
+    @Test
+    public void addingACardInPositonWhileCardIsNullReturnsFalse() throws Exception {
+        boolean added = mTestList.addCard(null, 0);
+        assertFalse(added);
+    }
+
+    @Test
+    public void addingACardWithAPositionLowerThen0WillReturnFalse() throws Exception{
+        boolean added = mTestList.addCard(mTestCardOne, -1);
+        assertFalse(added);
+    }
+
+    @Test
+    public void addingACardWithAPositionHigherThenSizeOfListWillReturnFalse() throws Exception {
+        boolean added = mTestList.addCard(mTestCardOne, 1);
+        assertFalse(added);
+    }
+
+    @Test
     public void getCardReturnsTheCardAtDesiredPosition() throws Exception {
         mTestList.addCard(mTestCardOne);
         mTestList.addCard(mTestCardTwo);

@@ -7,6 +7,7 @@ import com.boomerangsquad.debate.card.Card;
  */
 public interface CardListInterface {
     public boolean addCard(Card card);
+    public boolean addCard(Card card, int position);
     public boolean isFull();
     public void setFull(int number);
     public int getFull();
