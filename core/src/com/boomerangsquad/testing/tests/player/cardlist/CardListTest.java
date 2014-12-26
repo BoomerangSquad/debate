@@ -9,6 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 /**
  * Created by denny on 14-12-24.
@@ -66,6 +69,36 @@ public class CardListTest {
     public void addingACardWithAPositionHigherThenSizeOfListWillReturnFalse() throws Exception {
         boolean added = mTestList.addCard(mTestCardOne, 1);
         assertFalse(added);
+    }
+
+    @Test
+    public void addingListOfCardsWillAddCardsToCardList() throws Exception {
+        List<Card> cards = new ArrayList<Card>();
+        for(int i = 0; i < 3; i++){
+            cards.add(mTestCardOne);
+        }
+
+        List<Boolean> success = mTestList.addCard(cards);
+        assertEquals(3, success.size());
+        for(int i = 0; i < 3; i++){
+            assertEquals(mTestCardOne, mTestList.getCard(i));
+            assertTrue(success.get(i));
+        }
+        assertEquals(3, mTestList.size());
+    }
+
+    @Test
+    public void addingListOfCardsWithOneNullWillNotAddNullAndReturnFalse() throws Exception {
+        List<Card> cards = new ArrayList<Card>();
+        for(int i = 0; i < 3; i++){
+            cards.add(mTestCardOne);
+        }
+        cards.add((Card)null);
+        List<Boolean> success = mTestList.addCard(cards);
+        assertEquals(4, success.size());
+        assertEquals(3, mTestList.size());
+        assertFalse(success.get(3));
+
     }
 
     @Test
