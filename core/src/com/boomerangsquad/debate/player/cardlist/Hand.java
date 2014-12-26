@@ -17,4 +17,5 @@ public class Hand extends CardList {
         super();
         FULL = Constants.FULL_HAND;
     }
+
 }

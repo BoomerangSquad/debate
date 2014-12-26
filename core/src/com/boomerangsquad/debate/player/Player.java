@@ -103,5 +103,16 @@ public class Player {
         return mHand.addCard(mDeck.drawCard());
     }
 
+    /**
+     * Draw a desired Number of Cards from the Players deck, and the place
+     * the drawn cards into the player Hand.
+     *
+     * @param number Number of Cards to Draw
+     * @return List of success and failures.
+     */
+    public List<Boolean> drawCard(int number) {
+       return mHand.addCard(mDeck.drawCard(number));
+    }
+
 
 }

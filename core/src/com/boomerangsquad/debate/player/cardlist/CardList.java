@@ -60,6 +60,24 @@ public class CardList implements CardListInterface {
     }
 
     /**
+     * Add Cards to the CardList. Each card passed will call the
+     * add Card method. For each successul or failure addition, the result
+     * will be added to a list and returned.
+     *
+     * @param cards List of Cards to add to the CardList
+     * @return List of Success and Failures
+     */
+    @Override
+    public List<Boolean> addCard(List<Card> cards){
+        List<Boolean> success = new ArrayList<>();
+        for(int i = 0; i < cards.size(); i++){
+            success.add(addCard(cards.get(i)));
+        }
+
+        return success;
+    }
+
+    /**
      * Add a Card to the CardList at the specified position. If the card is null, the list is full,
      * or the position is outside of the array, return false. If Successful, return true
      *

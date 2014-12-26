@@ -45,6 +45,15 @@ public class Deck extends CardList{
         return removeCard(0);
     }
 
+    public List<Card> drawCard(int number){
+        List<Card> drawnCards = new ArrayList<>();
+        for(int i = 0; i < number; i++){
+            drawnCards.add(drawCard());
+        }
+
+        return drawnCards;
+    }
+
     /**
      * Draw a random card from the deck. This will remove the card from the deck and return
      * the removed card. If there is no card, null is returned.

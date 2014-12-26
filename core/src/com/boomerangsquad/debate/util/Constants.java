@@ -13,4 +13,7 @@ public class Constants {
 
     //Deck Size
     public final static int DECK_SIZE = 40;
+
+    //Starting Hand Size
+    public final static int STARTING_HAND = 4;
 }

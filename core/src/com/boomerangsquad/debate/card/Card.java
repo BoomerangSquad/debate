@@ -11,7 +11,6 @@ import com.boomerangsquad.debate.player.Player;
  */
 public class Card {
     private Player mOwner; //Player that Owns this Card
-    private Sprite mSprite; //2D Renderering of Card
     private String mText; //Text Display on Card
 
     /**
@@ -38,14 +37,6 @@ public class Card {
      */
     public void setOwner(Player owner) {
         this.mOwner = owner;
-    }
-
-    /**
-     * Get Sprite
-     * @return Return Sprite rendering of Card
-     */
-    public Sprite getSprite() {
-        return mSprite;
     }
 
     /**
