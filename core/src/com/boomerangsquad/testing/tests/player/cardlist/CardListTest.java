@@ -92,7 +92,7 @@ public class CardListTest {
 
     @Test
     public void addingANullIntoListWillReturnFalse() throws Exception {
-        boolean added = mTestList.addCard(null);
+        boolean added = mTestList.addCard((Card)null);
         assertFalse(added);
     }
 

@@ -46,7 +46,7 @@ public class Deck extends CardList{
     }
 
     public List<Card> drawCard(int number){
-        List<Card> drawnCards = new ArrayList<>();
+        List<Card> drawnCards = new ArrayList<Card>();
         for(int i = 0; i < number; i++){
             drawnCards.add(drawCard());
         }

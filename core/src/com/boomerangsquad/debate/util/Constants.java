@@ -16,4 +16,7 @@ public class Constants {
 
     //Starting Hand Size
     public final static int STARTING_HAND = 4;
+
+    //Default Card List FULL Value
+    public final static int DEFAULT_CARDLIST_FULL = 100;
 }

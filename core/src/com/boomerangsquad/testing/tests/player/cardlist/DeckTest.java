@@ -53,7 +53,7 @@ public class DeckTest {
 
     @Test
     public void willAddingNullToTheDeckReturnFalse() throws Exception {
-        boolean added = mDeck.addCard(null);
+        boolean added = mDeck.addCard((Card)null);
         assertFalse(added);
     }
 

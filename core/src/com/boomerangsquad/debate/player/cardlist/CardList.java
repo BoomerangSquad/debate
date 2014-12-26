@@ -1,6 +1,7 @@
 package com.boomerangsquad.debate.player.cardlist;
 
 import com.boomerangsquad.debate.card.Card;
+import com.boomerangsquad.debate.util.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class CardList implements CardListInterface {
      */
     public CardList() {
         mCardList = new ArrayList<Card>(); //Create new Arrayist
-        FULL = 100; //Set Default Full Size
+        FULL = Constants.DEFAULT_CARDLIST_FULL; //Set Default Full Size
     }
 
     /**
@@ -69,7 +70,7 @@ public class CardList implements CardListInterface {
      */
     @Override
     public List<Boolean> addCard(List<Card> cards){
-        List<Boolean> success = new ArrayList<>();
+        List<Boolean> success = new ArrayList<Boolean>();
         for(int i = 0; i < cards.size(); i++){
             success.add(addCard(cards.get(i)));
         }
