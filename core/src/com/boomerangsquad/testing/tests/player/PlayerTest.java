@@ -4,6 +4,7 @@ import com.boomerangsquad.debate.card.Card;
 import com.boomerangsquad.debate.player.cardlist.Deck;
 import com.boomerangsquad.debate.player.cardlist.Hand;
 import com.boomerangsquad.debate.player.Player;
+import com.boomerangsquad.debate.util.Constants;
 import com.boomerangsquad.testing.GdxTestRunner;
 import static org.junit.Assert.*;
 
@@ -22,7 +23,7 @@ public class PlayerTest {
     Player mPlayer;
     Card mTestCard;
     final String mPlayerName = "Andy";
-    final int mPlayerStartingHealth = 50;
+    final int mPlayerStartingHealth = Constants.STARTING_HEALTH;
 
     @Before
     public void setUp() throws Exception {
@@ -76,10 +77,10 @@ public class PlayerTest {
         assertFalse(mPlayer.drawCard());
     }
 
-//    @Test
-//    public void willDrawingACardAddToHand() throws Exception {
-//        mPlayer.getDeck().addCard(mTestCard);
-//        mPlayer.drawCard();
-//        assertEquals(mTestCard, mPlayer.getHand().getCard(0));
-//    }
+    @Test
+    public void willDrawingACardAddToHand() throws Exception {
+        mPlayer.getDeck().addCard(mTestCard);
+        mPlayer.drawCard();
+        assertEquals(mTestCard, mPlayer.getHand().getCard(0));
+    }
 }

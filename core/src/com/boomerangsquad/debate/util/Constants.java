@@ -7,4 +7,10 @@ public class Constants {
 
     //Amount of cards a player can have at max.
     public final static int FULL_HAND = 7;
+
+    //Player Starting Health
+    public final static int STARTING_HEALTH = 50;
+
+    //Deck Size
+    public final static int DECK_SIZE = 40;
 }

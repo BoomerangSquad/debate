@@ -1,6 +1,7 @@
 package com.boomerangsquad.debate.player.cardlist;
 
 import com.boomerangsquad.debate.card.Card;
+import com.boomerangsquad.debate.util.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +21,7 @@ public class Deck extends CardList{
      */
     public Deck(){
         super();
+        setFull(Constants.DECK_SIZE);
     }
 
     /**
