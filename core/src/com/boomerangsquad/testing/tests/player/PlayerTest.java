@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by denny on 14-12-22.
@@ -82,5 +83,35 @@ public class PlayerTest {
         mPlayer.getDeck().addCard(mTestCard);
         mPlayer.drawCard();
         assertEquals(mTestCard, mPlayer.getHand().getCard(0));
+    }
+
+    @Test
+    public void drawingMultipleCardsWithNoDeckRetunsFalses() throws Exception {
+        List<Boolean> success = mPlayer.drawCard(3);
+        for(int i = 0; i < 3; i++){
+            assertFalse(success.get(i));
+        }
+    }
+
+    @Test
+    public void drawingMultipleCardsTakesCardFromDeckToHandWithTrues() throws Exception {
+
+        //Add Cards To Deck
+        for(int i = 0; i < 3; i++){
+            mPlayer.getDeck().addCard(mTestCard);
+        }
+        //Make Sure Deck was added to Correct
+        assertEquals(3, mPlayer.getDeck().size());
+
+        //Draw Cards
+        List<Boolean> success = mPlayer.drawCard(3);
+
+        //Test that Integration Worked
+        assertEquals(3, mPlayer.getHand().size());
+        for(int i = 0; i < 3; i++){
+            assertEquals(mTestCard, mPlayer.getHand().getCard(0));
+            assertTrue(success.get(i));
+        }
+        assertTrue(mPlayer.getDeck().isEmpty());
     }
 }
