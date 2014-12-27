@@ -5,6 +5,10 @@ import com.boomerangsquad.debate.player.Player;
 import com.boomerangsquad.debate.util.CommandConstants;
 
 /**
+ * Base Command Class extends the Card Object. This method should generally
+ * be used to extend to other classes. Gives to ability to have costs and
+ * descriptions.
+ *
  * Created by denny on 14-12-21.
  */
 public class Command extends Card {
