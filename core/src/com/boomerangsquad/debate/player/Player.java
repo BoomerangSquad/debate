@@ -114,5 +114,16 @@ public class Player {
        return mHand.addCard(mDeck.drawCard(number));
     }
 
+    /**
+     * Draw the number of Cards needed to fill the players Hand, according
+     * to the Constants Full_hand. Return a Boolean of Successes.
+     *
+     * @return List of Success and Failures
+     */
+    public List<Boolean> drawMaxCards() {
+        int missingCards = Constants.FULL_HAND - mHand.size();
+        return drawCard(missingCards);
+    }
+
 
 }

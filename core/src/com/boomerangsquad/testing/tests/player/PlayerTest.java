@@ -102,6 +102,7 @@ public class PlayerTest {
         }
         //Make Sure Deck was added to Correct
         assertEquals(3, mPlayer.getDeck().size());
+        assertTrue(mPlayer.getHand().isEmpty());
 
         //Draw Cards
         List<Boolean> success = mPlayer.drawCard(3);
@@ -113,5 +114,22 @@ public class PlayerTest {
             assertTrue(success.get(i));
         }
         assertTrue(mPlayer.getDeck().isEmpty());
+    }
+
+    @Test
+    public void drawingMaxCardsWillSetHandToConstantValue() throws Exception {
+        //Add Cards to Deck
+        for(int i = 0; i < Constants.FULL_HAND; i++){
+            mPlayer.getDeck().addCard(mTestCard);
+        }
+
+        assertEquals(0, mPlayer.getHand().size());
+
+        //Draw Cards to Hand
+        List<Boolean> success = mPlayer.drawMaxCards();
+        assertEquals(Constants.FULL_HAND, mPlayer.getHand().size());
+        for(int i = 0; i < success.size(); i++){
+            assertTrue(success.get(i));
+        }
     }
 }
