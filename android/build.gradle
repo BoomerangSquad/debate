@@ -11,7 +11,11 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        instrumentTest.setRoot('tests')
+        instrumentTest.setRoot('test')
+        packagingOptions {
+            exclude 'testing'
+            exclude 'LICENSE.txt'
+        }
     }
 }
 

@@ -132,4 +132,12 @@ public class PlayerTest {
             assertTrue(success.get(i));
         }
     }
+
+    @Test
+    public void settingHealthReturnsTheSetValue() throws Exception {
+        assertEquals(10, mPlayer.setHealth(10));
+    }
+
+//    @Test
+//    public void WillRemoveHealth
 }

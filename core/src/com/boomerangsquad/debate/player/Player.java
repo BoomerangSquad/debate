@@ -67,8 +67,14 @@ public class Player {
      *
      * @param health Health to Set for Player
      */
-    public void setHealth(int health) {
-        mHealth = health;
+    public int setHealth(int health) {
+        if(health < 0){
+            mHealth = 0;
+        }else{
+            mHealth = health;
+        }
+
+        return mHealth;
     }
 
     public List<StatusEffect> getStatusEffects() {
@@ -91,6 +97,16 @@ public class Player {
      */
     public Deck getDeck() {
         return mDeck;
+    }
+
+    /**
+     * Damage the Players Health with the amount of damage passed.
+     *
+     * @param damageAmount Health to be reduced from health
+     * @return The new health of the player
+     */
+    public int removeHealth(int damageAmount){
+        return setHealth(getHealth() - damageAmount);
     }
 
     /**
